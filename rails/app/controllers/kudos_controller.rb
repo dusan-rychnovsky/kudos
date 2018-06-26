@@ -13,7 +13,8 @@ class KudosController < ApplicationController
       flash[:notice] = "Kudos has been created."
       redirect_to @kudo
     else
-      # nothing, yet
+      flash.now[:alert] = "Kudos has not been created."
+      render "new"
     end
   end
 

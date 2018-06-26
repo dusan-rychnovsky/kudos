@@ -1,11 +1,13 @@
 require "rails_helper"
 
 RSpec.feature "Users can create new Kudo" do
-  scenario "with valid attributes" do
 
+  before do
     visit "/"
     click_link "New Kudos"
+  end
 
+  scenario "with valid attributes" do
     fill_in "From", with: "Dusan Rychnovsky"
     fill_in "To", with: "Dusan Rychnvosky"
     fill_in "For", with: "Finally deciding to learn Rails."
@@ -18,5 +20,14 @@ RSpec.feature "Users can create new Kudo" do
 
     title = "Kudos - Finally deciding to learn Rails."
     expect(page).to have_title title
+  end
+
+  scenario "when providing invalid attributes" do
+    click_button "Create Kudos"
+
+    expect(page).to have_content "Kudos has not been created."
+    expect(page).to have_content "From can't be blank"
+    expect(page).to have_content "To can't be blank"
+    expect(page).to have_content "For can't be blank"
   end
 end
