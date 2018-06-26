@@ -1,0 +1,16 @@
+<h1>New Kudos</h1>
+<%= form_for(@kudo) do |f| %>
+  <p>
+    <%= f.label :from %><br>
+    <%= f.text_field :from %>
+  </p>
+  <p>
+    <%= f.label :to %><br>
+    <%= f.text_field :to %>
+  </p>
+  <p>
+    <%= f.label :for %><br>
+    <%= f.text_field :for %>
+  </p>
+  <%= f.submit "Create Kudos" %>
+<% end %>
