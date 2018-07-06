@@ -26,4 +26,20 @@ class KudosController < ApplicationController
   def show
     @kudo = Kudo.find(params[:id])
   end
+
+  def edit
+    @kudo = Kudo.find(params[:id])
+  end
+
+  def update
+    @kudo = Kudo.find(params[:id])
+
+    if @kudo.update(kudo_params)
+      flash[:notice] = "Kudos has been updated."
+      redirect_to @kudo
+    else
+      flash.now[:alert] = "Kudos has not been updated."
+      render "edit"
+    end
+  end
 end

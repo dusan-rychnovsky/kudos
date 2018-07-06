@@ -2,5 +2,6 @@
 <p>
   From: <%= @kudo.from %><br />
   To: <%= @kudo.to %><br />
-  For: <%= @kudo.for %>
+  For: <%= @kudo.for %><br />
+  <%= link_to "Edit Kudos", edit_kudo_path(@kudo) %>
 </p>
