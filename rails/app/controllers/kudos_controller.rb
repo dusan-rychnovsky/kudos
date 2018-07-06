@@ -42,4 +42,11 @@ class KudosController < ApplicationController
       render "edit"
     end
   end
+
+  def destroy
+    @kudo = Kudo.find(params[:id])
+    @kudo.destroy
+    flash[:notice] = "Kudos has been deleted."
+    redirect_to kudos_path
+  end
 end
