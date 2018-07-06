@@ -1,1 +1,13 @@
+<h1>Kudos</h1>
+
 <%= link_to "New Kudos", new_kudo_path %>
+
+<div id="kudos">
+  <% @kudos.each do |kudo| %>
+    <p>
+      From: <%= kudo.from %><br />
+      To: <%= kudo.to %><br />
+      For: <%= link_to kudo.for, kudo %>
+    </p>
+  <% end %>
+</div>
