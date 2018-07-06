@@ -1,5 +1,7 @@
 class KudosController < ApplicationController
 
+  before_action :set_kudo, only: [:show, :edit, :update, :destroy]
+
   def index
     @kudos = Kudo.all
   end
@@ -24,16 +26,12 @@ class KudosController < ApplicationController
   end
 
   def show
-    @kudo = Kudo.find(params[:id])
   end
 
   def edit
-    @kudo = Kudo.find(params[:id])
   end
 
   def update
-    @kudo = Kudo.find(params[:id])
-
     if @kudo.update(kudo_params)
       flash[:notice] = "Kudos has been updated."
       redirect_to @kudo
@@ -44,9 +42,17 @@ class KudosController < ApplicationController
   end
 
   def destroy
-    @kudo = Kudo.find(params[:id])
     @kudo.destroy
     flash[:notice] = "Kudos has been deleted."
+    redirect_to kudos_path
+  end
+
+private
+
+  def set_kudo
+    @kudo = Kudo.find(params[:id])
+  rescue
+    flash[:alert] = "The Kudos you were looking for could not be found."
     redirect_to kudos_path
   end
 end
