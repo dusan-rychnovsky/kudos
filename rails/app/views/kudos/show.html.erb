@@ -1,12 +1,20 @@
 <% @title = "Kudos - " + @kudo.for %>
+
+<header>
+  <h1>Kudos</h1>
+  <ul class="actions">
+    <li><%= link_to "Edit Kudos", edit_kudo_path(@kudo), class: "edit" %></li>
+    <li><%= link_to "Delete Kudos",
+      kudo_path(@kudo),
+      method: :delete,
+      data: { confirm: "Are you sure you want to delete this kudos?" },
+      class: "delete"
+    %></li>
+  </ul>
+</header>
+
 <p>
   From: <%= @kudo.from %><br />
   To: <%= @kudo.to %><br />
-  For: <%= @kudo.for %><br />
-  <%= link_to "Edit Kudos", edit_kudo_path(@kudo) %><br />
-  <%= link_to "Delete Kudos",
-    kudo_path(@kudo),
-    method: :delete,
-    data: { confirm: "Are you sure you want to delete this kudos?" }
-  %>
+  For: <%= @kudo.for %>
 </p>
