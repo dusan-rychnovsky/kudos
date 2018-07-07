@@ -1,25 +1,8 @@
-<%= form_for(kudo) do |f| %>
-  <% if kudo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(kudo.errors.count, "error") %> prohibited this kudos from being saved:</h2>
-      <ul>
-        <% kudo.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= f.label :from %><br>
-    <%= f.text_field :from %>
-  </p>
-  <p>
-    <%= f.label :to %><br>
-    <%= f.text_field :to %>
-  </p>
-  <p>
-    <%= f.label :for %><br>
-    <%= f.text_field :for %>
-  </p>
-  <%= f.submit (kudo[:id] ? "Update " : "Create ") + "Kudos" %>
+<%= simple_form_for(kudo) do |f| %>
+
+  <%= f.input :from %>
+  <%= f.input :to %>
+  <%= f.input :for %>
+
+  <%= f.button :submit, (kudo[:id] ? "Update " : "Create ") + "Kudos", class: "btn-primary" %>
 <% end %>

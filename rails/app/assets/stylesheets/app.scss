@@ -63,6 +63,10 @@ a.delete {
   @extend .alert-danger;
 }
 
+form {
+  max-width: 500px;
+}
+
 #kudos h2 {
   font-size: 16px;
   font-weight: bold;
