@@ -1,16 +1,17 @@
 require "rails_helper"
 
 RSpec.feature "Users can delete kudos" do
-  scenario "successfully" do
-    FactoryGirl.create(:kudo, from: "Dusan Rychnovsky", to: "Dusan Rychnovsky", for: "Starting to learn Rails.")
+  let(:from) { FactoryGirl.create(:user) }
+  let!(:kudo) { FactoryGirl.create(:kudo, from: from) }
 
+  scenario "successfully" do
     visit "/"
-    click_link "Starting to learn Rails."
+    click_link kudo.for
 
     click_link "Delete Kudos"
 
     expect(page).to have_content "Kudos has been deleted."
     expect(page.current_url).to eq kudos_url
-    expect(page).to have_no_content "Starting to learn Rails."
+    expect(page).to have_no_content kudo.for
   end
 end
