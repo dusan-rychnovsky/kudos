@@ -38,6 +38,7 @@
             <div class="navbar-right">
               <p class="navbar-text">
                 Signed in as <%= current_user.username %>
+                <%= "(Admin)" if current_user.admin? %>
               </p>
               <ul class="nav navbar-nav">
                 <li>
