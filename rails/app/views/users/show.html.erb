@@ -13,3 +13,7 @@
     Kudos for <b><%= kudo.for %></b>
   </div>
 <% end %>
+
+<% if @kudos.empty? %>
+  No Kudos recieved sofar.
+<% end %>
