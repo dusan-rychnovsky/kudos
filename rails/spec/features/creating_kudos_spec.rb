@@ -7,13 +7,13 @@ RSpec.feature "Users can create new Kudo" do
   before do
     login_as(user)
     visit "/"
-    click_link "New Kudos"
+    click_link "Give Kudos"
   end
 
   scenario "with valid attributes" do
     select to.username, from: "To"
     fill_in "For", with: "Finally deciding to learn Rails."
-    click_button "Create Kudos"
+    click_button "Give Kudos"
 
     expect(page).to have_content "Kudos has been created."
     kudo = Kudo.find_by(for: "Finally deciding to learn Rails.")
@@ -23,7 +23,7 @@ RSpec.feature "Users can create new Kudo" do
   end
 
   scenario "when providing invalid attributes" do
-    click_button "Create Kudos"
+    click_button "Give Kudos"
 
     expect(page).to have_content "Kudos has not been created."
     expect(page).to have_content "To must exist"
