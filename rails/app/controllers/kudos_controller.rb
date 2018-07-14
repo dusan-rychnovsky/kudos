@@ -1,6 +1,6 @@
 class KudosController < ApplicationController
 
-  before_action :set_kudo, only: [:show, :edit, :update, :destroy]
+  before_action :set_kudo, only: [:show]
 
   def index
     @users = User.all
@@ -16,33 +16,11 @@ class KudosController < ApplicationController
     @kudo.from = current_user
     if @kudo.save
       flash[:notice] = "Kudos has been created."
-      redirect_to @kudo
+      redirect_to user_path(@kudo.to_id)
     else
       flash.now[:alert] = "Kudos has not been created."
       render "new"
     end
-  end
-
-  def show
-  end
-
-  def edit
-  end
-
-  def update
-    if @kudo.update(kudo_params)
-      flash[:notice] = "Kudos has been updated."
-      redirect_to @kudo
-    else
-      flash.now[:alert] = "Kudos has not been updated."
-      render "edit"
-    end
-  end
-
-  def destroy
-    @kudo.destroy
-    flash[:notice] = "Kudos has been deleted."
-    redirect_to kudos_path
   end
 
 private
