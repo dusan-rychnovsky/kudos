@@ -3,6 +3,7 @@ class KudosController < ApplicationController
   before_action :set_kudo, only: [:show, :edit, :update, :destroy]
 
   def index
+    @users = User.all
     @kudos = Kudo.all
   end
 

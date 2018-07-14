@@ -30,7 +30,7 @@ ul.actions {
   text-align: right;
 }
 
-a.new, a.edit, a.delete {
+a.new, a.edit, a.delete, a.back {
   @extend .btn;
   &:before {
     font-family: "FontAwesome";
@@ -59,6 +59,13 @@ a.delete {
   }
 }
 
+a.back {
+  @extend .btn-default;
+  &:before {
+    @extend .fa-angle-left;
+  }
+}
+
 .alert-notice {
   @extend .alert-success;
 }
@@ -71,8 +78,26 @@ form {
   max-width: 500px;
 }
 
-#kudos h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 20px 0px 0px;
+h2 {
+  color: #23527c;
+  font-size: 20px;
+  font-weight: normal;
+  margin: 25px 0px 20px 0px;
+}
+
+.kudo {
+  margin: 0px 0px 20px 0px;
+}
+
+#users {
+  @extend .list-group;
+  max-width: 250px;
+}
+
+#users a {
+  @extend .list-group-item;
+}
+
+#users .count {
+  @extend .badge;
 }

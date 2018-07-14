@@ -1,0 +1,15 @@
+<header>
+  <h1>Kudos</h1>
+  <ul class="actions">
+    <li><%= link_to "Back", root_path, class: "back" %></li>
+  </ul>
+</header>
+
+<h2>To <b><%= @user.username %></b>:</h2>
+
+<% @kudos.each do |kudo| %>
+  <div class="kudo">
+    <%= kudo.from.username %><br />
+    Kudos for <b><%= kudo.for %></b>
+  </div>
+<% end %>

@@ -5,12 +5,13 @@
   </ul>
 </header>
 
-<div id="kudos">
-  <% @kudos.each do |kudo| %>
-    <p>
-      <h2><%= link_to kudo.for, kudo %></h2>
-      From: <%= kudo.from.username %><br />
-      To: <%= kudo.to.username %><br />
-    </p>
+<h2>To:</h2>
+
+<div id="users">
+  <% @users.each do |user| %>
+    <%= link_to user do %>
+      <%= user.username %>
+      <span class="count">10</span>
+    <% end %>
   <% end %>
 </div>
