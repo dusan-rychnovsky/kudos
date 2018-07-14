@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Users can create new Kudo" do
   let(:user) { FactoryGirl.create(:user) }
+  let!(:to) { FactoryGirl.create(:user) }
 
   before do
     login_as(user)
@@ -10,7 +11,7 @@ RSpec.feature "Users can create new Kudo" do
   end
 
   scenario "with valid attributes" do
-    fill_in "To", with: "Dusan Rychnvosky"
+    select to.username, from: "To"
     fill_in "For", with: "Finally deciding to learn Rails."
     click_button "Create Kudos"
 
@@ -23,13 +24,14 @@ RSpec.feature "Users can create new Kudo" do
     expect(page).to have_title title
 
     expect(page).to have_content "From: #{user.username}"
+    expect(page).to have_content "To: #{to.username}"
   end
 
   scenario "when providing invalid attributes" do
     click_button "Create Kudos"
 
     expect(page).to have_content "Kudos has not been created."
-    expect(page).to have_content "To can't be blank"
+    expect(page).to have_content "To must exist"
     expect(page).to have_content "For can't be blank"
   end
 end

@@ -47,7 +47,7 @@ class KudosController < ApplicationController
 private
 
   def kudo_params
-    params.require(:kudo).permit(:to, :for)
+    params.require(:kudo).permit(:to_id, :for)
   end
 
   def set_kudo

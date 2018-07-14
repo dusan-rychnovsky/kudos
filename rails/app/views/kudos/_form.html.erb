@@ -1,6 +1,6 @@
 <%= simple_form_for(kudo) do |f| %>
 
-  <%= f.input :to %>
+  <%= f.association :to, label_method: :username %>
   <%= f.input :for %>
 
   <%= f.button :submit, (kudo[:id] ? "Update " : "Create ") + "Kudos", class: "btn-primary" %>

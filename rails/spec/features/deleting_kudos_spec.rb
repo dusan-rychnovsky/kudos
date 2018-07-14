@@ -2,7 +2,8 @@ require "rails_helper"
 
 RSpec.feature "Users can delete kudos" do
   let(:from) { FactoryGirl.create(:user) }
-  let!(:kudo) { FactoryGirl.create(:kudo, from: from) }
+  let(:to) { FactoryGirl.create(:user) }
+  let!(:kudo) { FactoryGirl.create(:kudo, from: from, to: to) }
 
   scenario "successfully" do
     visit "/"

@@ -1,5 +1,5 @@
 class Kudo < ApplicationRecord
   belongs_to :from, class_name: "User"
-  validates :to, presence: true
+  belongs_to :to, class_name: "User"
   validates :for, presence: true
 end

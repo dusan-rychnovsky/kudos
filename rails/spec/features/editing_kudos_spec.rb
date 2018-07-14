@@ -2,7 +2,8 @@ require "rails_helper"
 
 RSpec.feature "Users can edit existing kudos" do
   let(:user) { FactoryGirl.create(:user) }
-  let!(:kudo) { FactoryGirl.create(:kudo, from: user, for: "Setting up to learn Railz.") }
+  let(:to) { FactoryGirl.create(:user) }
+  let!(:kudo) { FactoryGirl.create(:kudo, from: user, to: to, for: "Setting up to learn Railz.") }
 
   before do
     visit "/"
