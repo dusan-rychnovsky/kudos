@@ -11,7 +11,9 @@
   <% @users.each do |user| %>
     <%= link_to user do %>
       <%= user.username %>
-      <span class="count">10</span>
+      <span class="count">
+        <%= user.kudos_to.count %>
+      </span>
     <% end %>
   <% end %>
 </div>

@@ -3,8 +3,7 @@ class KudosController < ApplicationController
   before_action :set_kudo, only: [:show]
 
   def index
-    @users = User.all
-    @kudos = Kudo.all
+    @users = User.preload(:kudos_to).all
   end
 
   def new
