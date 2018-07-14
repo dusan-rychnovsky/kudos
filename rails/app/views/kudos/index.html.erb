@@ -1,7 +1,11 @@
 <header>
   <h1>Kudos</h1>
   <ul class="actions">
-    <li><%= link_to "Give Kudos", new_kudo_path, class: "new" %></li>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to "Give Kudos", new_kudo_path, class: "new" %>
+      </li>
+    <% end %>
   </ul>
 </header>
 

@@ -7,10 +7,12 @@ class KudosController < ApplicationController
   end
 
   def new
+    authenticate_user!
     @kudo = Kudo.new
   end
 
   def create
+    authenticate_user!
     @kudo = Kudo.new(kudo_params)
     @kudo.from = current_user
     if @kudo.save
