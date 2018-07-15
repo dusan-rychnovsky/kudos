@@ -9,7 +9,7 @@
 
 <% @kudos.each do |kudo| %>
   <div class="kudo">
-    <%= kudo.from.username %><br />
+    <%= kudo.from.username %> (<%= kudo.created_at.strftime("%d. %m. %Y %H:%M") %>)<br />
     Kudos for <b><%= kudo.for %></b>
   </div>
 <% end %>
