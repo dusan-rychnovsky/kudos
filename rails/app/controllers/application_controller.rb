@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+  def authorize_admin!
+    authenticate_user!
+    unless current_user.admin?
+      redirect_to root_path, alert: "You must be an admin to do that."
+    end
+  end
 end

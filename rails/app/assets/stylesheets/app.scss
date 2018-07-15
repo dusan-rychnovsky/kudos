@@ -53,7 +53,9 @@ a.edit {
 }
 
 a.delete {
-  @extend .btn-danger;
+  @extend .btn-default;
+  @extend .btn-xs;
+  margin-top: 5px;
   &:before {
     @extend .fa-trash;
   }

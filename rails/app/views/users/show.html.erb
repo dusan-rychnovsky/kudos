@@ -15,7 +15,14 @@
 <% @kudos.each do |kudo| %>
   <div class="kudo">
     <%= kudo.from.username %> (<%= kudo.created_at.strftime("%d. %m. %Y %H:%M") %>)<br />
-    Kudos for <b><%= kudo.for %></b>
+    Kudos for <b><%= kudo.for %></b><br />
+    <% admins_only do %>
+      <%= link_to "Delete",
+        kudo_path(kudo),
+        method: :delete,
+        data: { confirm: "Are you sure you want to delete this kudos?" },
+        class: "delete" %>
+    <% end %>
   </div>
 <% end %>
 

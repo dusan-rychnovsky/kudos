@@ -1,6 +1,7 @@
 class KudosController < ApplicationController
 
-  before_action :set_kudo, only: [:show]
+  before_action :set_kudo, only: [:show, :destroy]
+  before_action :authorize_admin!, only: [:destroy]
 
   def index
     @users = User.preload(:kudos_to).all.sort_by { |user| user.kudos_to.count }.reverse
@@ -23,6 +24,12 @@ class KudosController < ApplicationController
       flash.now[:alert] = "Kudos has not been created."
       render "new"
     end
+  end
+
+  def destroy
+    @kudo.destroy
+    flash[:notice] = "Kudos has been deleted."
+    redirect_to user_path(@kudo.to_id)
   end
 
 private
