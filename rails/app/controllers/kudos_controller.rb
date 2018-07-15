@@ -4,6 +4,7 @@ class KudosController < ApplicationController
 
   def index
     @users = User.preload(:kudos_to).all.sort_by { |user| user.kudos_to.count }.reverse
+    @new_kudos = Kudo.order('created_at DESC').limit(5)
   end
 
   def new

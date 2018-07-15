@@ -74,6 +74,11 @@ a.back {
   @extend .alert-danger;
 }
 
+section {
+  float: left;
+  margin-right: 50px;
+}
+
 form {
   max-width: 500px;
 }
@@ -91,7 +96,7 @@ h2 {
 
 #users {
   @extend .list-group;
-  max-width: 250px;
+  width: 250px;
 }
 
 #users a {
@@ -100,4 +105,8 @@ h2 {
 
 #users .count {
   @extend .badge;
+}
+
+#new-kudos {
+  font-size: 12px;
 }

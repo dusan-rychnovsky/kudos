@@ -9,15 +9,36 @@
   </ul>
 </header>
 
-<h2>To:</h2>
+<section>
+  <h2>To:</h2>
 
-<div id="users">
-  <% @users.each do |user| %>
-    <%= link_to user do %>
-      <%= user.username %>
-      <span class="count">
-        <%= user.kudos_to.count %>
-      </span>
+  <div id="users">
+    <% @users.each do |user| %>
+      <%= link_to user do %>
+        <%= user.username %>
+        <span class="count">
+          <%= user.kudos_to.count %>
+        </span>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+</section>
+
+<section>
+  <h2>Latest Kudos:</h2>
+
+  <div id="new-kudos">
+    <% @new_kudos.each do |kudo| %>
+      <div class="kudo">
+        <%= kudo.created_at.strftime("%d. %m. %Y %H:%M") %><br />
+        From: <b><%= kudo.from.username %></b><br />
+        To: <b><%= kudo.to.username %></b><br />
+        For: <b><%= kudo.for %></b>
+      </div>
+    <% end %>
+
+    <% if @new_kudos.empty? %>
+      No Kudos recieved sofar.
+    <% end %>
+  </div>
+</section>
