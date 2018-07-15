@@ -17,3 +17,27 @@ end
 unless User.exists?(email: "rupaul@microsoft.com")
   User.create!(username: "Ruma Paul", email: "rupaul@microsoft.com", password: "password")
 end
+
+unless User.exists?(email: "irkulako@microsoft.com")
+  User.create!(username: "Iryna Kulakova", email: "irkulako@microsoft.com", password: "password")
+end
+
+unless User.exists?(email: "javrtisk@microsoft.com")
+  User.create!(username: "Jan Vrtiska", email: "javrtisk@microsoft.com", password: "password")
+end
+
+unless User.exists?(email: "masalat@microsoft.com")
+  User.create!(username: "Marek Salat", email: "masalat@microsoft.com", password: "password")
+end
+
+unless User.exists?(email: "jastrejc@microsoft.com")
+  User.create!(username: "Jan Strejc", email: "jastrejc@microsoft.com", password: "password")
+end
+
+unless User.exists?(email: "stsaklas@microsoft.com")
+  User.create!(username: "Stefanos Tsaklas", email: "stsaklas@microsoft.com", password: "password")
+end
+
+unless User.exists?(email: "adsyrek@microsoft.com")
+  User.create!(username: "Adam Syrek", email: "adsyrek@microsoft.com", password: "password")
+end
