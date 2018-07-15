@@ -3,7 +3,7 @@ class KudosController < ApplicationController
   before_action :set_kudo, only: [:show]
 
   def index
-    @users = User.preload(:kudos_to).all
+    @users = User.preload(:kudos_to).all.sort_by { |user| user.kudos_to.count }.reverse
   end
 
   def new
