@@ -1,3 +1,10 @@
 language: ruby
 rvm: 2.2.5
 script: bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: Qbw1twZeVNTVD04H/OfO4RPBzlERuns5B+VWyaL+Y270wp3UeOirQS+fNdqjBTDDshXSfi9I2on2PbiGUVfsGKJW6DDKZy8JhCVc13B/rB/bNgOxFLy3HCmLvTHi4XlYDZSyHI5gUWKIX9KadGhx8fke3XGkUp4FK52u1phfcDJurienxTl+amlQR3i+DQdXokgJ1vbFoffdehD+bler2TtKQViZ3rPP6P/SJ9AS+psAHau/n6WNhUwZ31uqLXgEClJzZvQrv9uCWOXZXumGfn9mN3K7Q5ATud1G6uQbQQk3hCu1Vu/1wiQqCObfnIeyxsqR06MHF1CxLQ9E8+O7D+pNDb6cpPU/Co+6p+6UlheqNys1am86Q2+D6+9IU6+rfG9+M/9D1hWh2R8Q4KMu6S6WknKcc1Yx1GunwDpvBRgl0yXOd30VM21e0kEf7xa3+Zw7x9Vm+uu3tOpCQ6EZLgPEBzc2fN7enNSgfwhGATY51JYB7lq+0gfy/Cgj9toSheXvuMgZ2P6fj/GdAIJrdOIFib32V5ijWj/S8RteMih34HgIJjkYmcyqCZYUhO+Z/3Pw/ieVEA9lnrH5nDEQ2aWdN4zkyrh+GSvWwA5xw0+WSTzLusaOeWP9o/jRv+oDDRsHaqhJL9eUTtiidR3iNKpAPMnR8oFjxwQt+I2ryWI=
+  app: kudos
+  on:
+    repo: dusan-rychnovsky/kudos
