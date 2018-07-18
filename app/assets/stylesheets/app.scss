@@ -55,10 +55,13 @@ a.edit {
 a.delete {
   @extend .btn-default;
   @extend .btn-xs;
-  margin-top: 5px;
   &:before {
     @extend .fa-trash;
   }
+}
+
+.kudo .delete {
+  margin-top: 3px;
 }
 
 a.back {

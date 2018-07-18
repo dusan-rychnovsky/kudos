@@ -1,10 +1,13 @@
 class Admin::UsersController < Admin::ApplicationController
+
   def index
     @users = User.order(:email)
   end
+
   def new
     @user = User.new
   end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -14,6 +17,13 @@ class Admin::UsersController < Admin::ApplicationController
       flash.now[:alert] = "User has not been created."
       render "new"
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "User has been deleted."
+    redirect_to admin_users_path
   end
 
 private
