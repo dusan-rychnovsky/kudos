@@ -41,3 +41,7 @@ end
 unless User.exists?(email: "adsyrek@microsoft.com")
   User.create!(username: "Adam Syrek", email: "adsyrek@microsoft.com", password: "password")
 end
+
+unless User.exists?(email: "danmdinu@microsoft.com")
+  User.create!(username: "Dan Mihai Dinu", email: "danmdinu@microsoft.com", password: "password")
+end
