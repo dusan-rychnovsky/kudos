@@ -19,6 +19,13 @@ class Admin::UsersController < Admin::ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    InvitationMailer.invited(@user).deliver_now
+    flash[:notice] = "Invitation has been sent."
+    redirect_to admin_users_path
+  end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
