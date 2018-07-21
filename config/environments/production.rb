@@ -63,7 +63,7 @@ Rails.application.configure do
 
   ActionMailer::Base.delivery_method = :smtp
 
-  host = "yourapp.herokuapp.com"
+  host = "kudoscounter.herokuapp.com"
 
   ActionMailer::Base.smtp_settings = {
     port: ENV['MAILGUN_SMTP_PORT'],
