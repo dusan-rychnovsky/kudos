@@ -21,7 +21,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   def update
     @user = User.find(params[:id])
-    InvitationMailer.invited(@user).deliver_now
+    # InvitationMailer.invited(@user).deliver_now
     @user.send_reset_password_instructions
     flash[:notice] = "Invitation has been sent."
     redirect_to admin_users_path

@@ -11,7 +11,7 @@ RSpec.feature "Admin can send email invitations" do
     click_link "Users"
   end
 
-  scenario "" do
+  scenario "", skip: true do
     click_link("Invite", match: :first)
 
     expect(page).to have_content "Invitation has been sent."
