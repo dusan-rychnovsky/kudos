@@ -4,7 +4,7 @@
     <li><%= link_to "Back", root_path, class: "back" %></li>
     <% if user_signed_in? %>
       <li>
-        <%= link_to "Give Kudos", new_kudo_path, class: "new" %>
+        <%= link_to "Give Kudos", new_kudo_path(:to_id => @user.id), class: "new" %>
       </li>
     <% end %>
   </ul>

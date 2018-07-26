@@ -10,6 +10,7 @@ class KudosController < ApplicationController
 
   def new
     authenticate_user!
+    @to_id = params[:to_id]
     @kudo = Kudo.new
   end
 
