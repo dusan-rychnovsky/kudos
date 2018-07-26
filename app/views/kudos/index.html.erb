@@ -33,7 +33,7 @@
         <%= kudo.created_at.strftime("%d. %m. %Y %H:%M") %><br />
         From: <b><%= kudo.from.username %></b><br />
         To: <b><%= kudo.to.username %></b><br />
-        For: <b><%= kudo.for %></b>
+        For: <b><%= truncate(kudo.for, length: 50) %></b>
       </div>
     <% end %>
 
